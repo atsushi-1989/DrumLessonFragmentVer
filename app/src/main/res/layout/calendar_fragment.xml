@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="date"
+            type="String[]" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CalendarFragment" >
+
+
+        <!--縦分割のガイドライン-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/youbi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1" />
+
+        <!--横分割のガイドライン-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1425" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.285" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4275" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.57" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7125" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.855" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/row7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="1" />
+
+
+        <View
+            android:id="@+id/ruled_line1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/ruled_line2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/youbi"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <View
+            android:id="@+id/ruled_line3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/line_1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/ruled_line4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/line_2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/ruled_line5"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/line_3"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/ruled_line6"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/line_4"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/ruled_line7"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/line_5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/ruled_line8"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        //縦線
+        <View
+            android:id="@+id/vertical_line1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/vertical_line2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/row1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <View
+            android:id="@+id/vertical_line3"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/row2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/vertical_line4"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/row3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/vertical_line5"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/row4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/vertical_line6"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/row5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/vertical_line7"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/row6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/vertical_line8"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+
+        //TextView Week
+
+        <TextView
+            android:id="@+id/sunday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sun"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        <TextView
+            android:id="@+id/monday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Mon"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        <TextView
+            android:id="@+id/tuesday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Tue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        <TextView
+            android:id="@+id/wednesday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Wed"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        <TextView
+            android:id="@+id/thursday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Thu"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        <TextView
+            android:id="@+id/friday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Fri"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        <TextView
+            android:id="@+id/saturday"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sat"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line1" />
+
+
+        //TextView date
+
+        <TextView
+            android:id="@+id/cell_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[0]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[1]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[2]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[3]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[4]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[5]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[6]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line2" />
+
+        <TextView
+            android:id="@+id/cell_21"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[7]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_22"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[8]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_23"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[9]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_24"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[10]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_25"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[11]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_26"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[12]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_27"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[13]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line3" />
+
+        <TextView
+            android:id="@+id/cell_31"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[14]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_32"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[15]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_33"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[16]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_34"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[17]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_35"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[18]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_36"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[19]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_37"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[20]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line5"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line4" />
+
+        <TextView
+            android:id="@+id/cell_41"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[21]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_42"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[22]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_43"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[23]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_44"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[24]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_45"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[25]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_46"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[26]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_47"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[27]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line5" />
+
+        <TextView
+            android:id="@+id/cell_51"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[28]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_52"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[29]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_53"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[30]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_54"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[31]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_55"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[32]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_56"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[33]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_57"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[34]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line6" />
+
+        <TextView
+            android:id="@+id/cell_61"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[35]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line2"
+            app:layout_constraintStart_toStartOf="@id/vertical_line1"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+        <TextView
+            android:id="@+id/cell_62"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[36]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line3"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line2"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+        <TextView
+            android:id="@+id/cell_63"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[37]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line4"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line3"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+        <TextView
+            android:id="@+id/cell_64"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[38]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line4"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+        <TextView
+            android:id="@+id/cell_65"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[39]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line6"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line5"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+        <TextView
+            android:id="@+id/cell_66"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[40]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line7"
+            app:layout_constraintStart_toEndOf="@+id/vertical_line6"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+        <TextView
+            android:id="@+id/cell_67"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@{date[41]}"
+            app:layout_constraintBottom_toBottomOf="@id/ruled_line8"
+            app:layout_constraintEnd_toEndOf="@id/vertical_line8"
+            app:layout_constraintStart_toEndOf="@id/vertical_line7"
+            app:layout_constraintTop_toTopOf="@id/ruled_line7" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
